@@ -1,3 +1,4 @@
+require("dotenv").config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -16,8 +17,7 @@ const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
 // !IMPORTANT! don't forget to hide DB URL
-const dev_db_url = "mongodb+srv://adamgoldberg95:wolfgang@cluster0.dape8ay.mongodb.net/local_library?retryWrites=true&w=majority";
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
+const mongoDB = process.env.MONGODB_URI;
 
 main().catch((err) => console.log(err));
 async function main() {
